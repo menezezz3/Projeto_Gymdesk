@@ -1,0 +1,29 @@
+CREATE TABLE IF NOT EXISTS planos (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nome TEXT NOT NULL,
+  mensalidade REAL NOT NULL
+);
+CREATE TABLE IF NOT EXISTS alunos (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nome TEXT NOT NULL,
+  email TEXT,
+  telefone TEXT,
+  plano_id INTEGER,
+  ativo INTEGER NOT NULL DEFAULT 1,
+  FOREIGN KEY(plano_id) REFERENCES planos(id)
+);
+CREATE TABLE IF NOT EXISTS pagamentos (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  aluno_id INTEGER NOT NULL,
+  valor REAL NOT NULL,
+  data_pagamento TEXT NOT NULL,
+  vencimento TEXT NOT NULL,
+  status TEXT NOT NULL,
+  FOREIGN KEY(aluno_id) REFERENCES alunos(id)
+);
+CREATE TABLE IF NOT EXISTS checkins (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  aluno_id INTEGER NOT NULL,
+  data_hora TEXT NOT NULL,
+  FOREIGN KEY(aluno_id) REFERENCES alunos(id)
+);
