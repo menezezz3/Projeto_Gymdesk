@@ -1,21 +1,81 @@
-# GymDesk (Refatorado)
+# 🏋️‍♂️ GymDesk Avançado
 
-Projeto Java Swing + SQLite com arquitetura em camadas (MVC/DAO) para gestão de academia.
+Sistema desktop em **Java (Swing + JDBC)** para gerenciamento de academias, permitindo controle de **alunos, planos, pagamentos, check-ins e relatórios** de forma prática e organizada.
 
-## Como compilar e executar
+---
 
-Pré-requisitos: **Java 17+** e **Maven** instalados.
+## 📋 Funcionalidades
 
-```bash
-mvn clean package
-java -jar target/gymdesk-1.0.0-jar-with-dependencies.jar
-```
+- 📌 Cadastro e gerenciamento de **alunos**
+- 📝 Controle de **planos** de academia
+- 💰 Registro e acompanhamento de **pagamentos**
+- 🕒 Sistema de **check-in** para alunos
+- 📊 Geração de **relatórios** (financeiros e administrativos)
+- ⚠️ Painel de **alertas** para acompanhamento de pendências
 
-O banco `gymdesk.db` será criado automaticamente na mesma pasta do executável.
+---
 
-## Melhorias principais
-- Separação de camadas: `model`, `dao`, `service`, `ui`, `db`.
-- Tabelas com ordenação, filtro de alunos por nome e diálogos de edição.
-- Look&Feel moderno com FlatLaf.
-- Relatórios simples (total de alunos, receita do mês).
-- Código pronto para evoluir (exportações, alertas, permissões etc.).
+## 🛠️ Tecnologias Utilizadas
+
+- **Java 17+**
+- **Swing** (interface gráfica desktop)
+- **JDBC** (acesso a banco de dados)
+- **Maven** (gerenciador de dependências)
+- **MySQL / PostgreSQL** (pode ser adaptado)
+- **SQL Script** (`schema.sql` para criação da base de dados)
+
+---
+
+## ⚙️ Como Executar
+
+### 1. Pré-requisitos
+- [Java 17+](https://adoptium.net/) instalado  
+- [Maven](https://maven.apache.org/) configurado  
+- Banco de dados **MySQL** ou **PostgreSQL** rodando  
+
+### 2. Criar Banco de Dados
+Execute o script `src/main/resources/schema.sql` no seu banco:
+
+```sql
+CREATE DATABASE gymdesk;
+USE gymdesk;
+
+-- (tabelas e constraints definidas no schema.sql)
+
+---
+
+3. Configurar Conexão
+
+No arquivo Database.java, ajuste as credenciais:
+
+private static final String URL = "jdbc:mysql://localhost:3306/gymdesk";
+private static final String USER = "seu_usuario";
+private static final String PASSWORD = "sua_senha";
+
+4. Compilar e Rodar
+
+Na raiz do projeto:
+
+mvn clean install
+mvn exec:java -Dexec.mainClass="br.com.gymdesk.ui.App"
+
+🚀 Futuras Melhorias
+
+Autenticação de usuários (login/admin)
+
+Dashboard inicial com métricas
+
+Exportação de relatórios em PDF
+
+Integração com serviços de pagamento
+
+📸 Demonstração
+
+(adicione aqui prints da aplicação depois de rodar, exemplo: painel de alunos, tela de planos, etc.)
+
+👨‍💻 Autor
+
+Projeto desenvolvido por Matheus Menezes no intuito de praticar e aplicar conceitos de Java, JDBC e desenvolvimento de sistemas desktop.
+
+## 📂 Estrutura do Projeto
+
