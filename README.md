@@ -1,4 +1,4 @@
-# 🏋️‍♂️ GymDesk Avançado
+# 🏋️‍♂️ GymDesk 
 
 Sistema desktop em **Java (Swing + JDBC)** para gerenciamento de academias, permitindo controle de **alunos, planos, pagamentos, check-ins e relatórios** de forma prática e organizada.
 
